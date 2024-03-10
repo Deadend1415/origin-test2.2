@@ -79,21 +79,28 @@ li a:hover {
 
 .row {
     display: grid;
-    height: 33.3%;
-    grid-template-columns:25% 25% 25% 25%;
+    height: auto;
+    grid-template-columns:20% 20% 20% 20% 20%;
     align-items: center;
     column-gap: 0.2%;
 }
 
 img{
     border-radius: 1.5%;
+    width: 100%;
+    transition: z-index 2s,width 1s;
+}
+
+img:hover{
+    z-index: 2;
+    width: 110%;
 }
 
 p{
     font-weight: bold;
     font-size: 2em;
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 5;
     font-family: 'ADLaM Display';    color: aliceblue;
-    background: #333333;
+    background-image: linear-gradient(to right, #ffcc89, rgba(49, 81, 162, 0.44),#4f5dbf00);
     border-radius: 1%;
 }

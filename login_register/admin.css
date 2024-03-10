@@ -4,7 +4,7 @@
  
   {
   display: grid;
-  background-color: #fff;
+  background-color: #333;
   text-align-last: justify;
   height: 50%;
   width: 100%;
@@ -30,7 +30,6 @@
   {
   content: '';
   right: 5px;
-  box-shadow: 0 0 0 1px #fff;
   }
  
   fieldset
@@ -162,7 +161,7 @@ body{
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   justify-content: center;
-  background-color: rgb(250 46 102);
+  background-color: rgb(65, 0, 105);
   align-items: center;
   grid-column: 3 / span 2;
   grid-row: 2 / span 3;
@@ -211,6 +210,10 @@ p{
   justify-content: center;
   grid-template-columns: 25% 20% 27.5% 27.5%;
   grid-template-rows: 10% auto auto auto;
+  background-image: url("../resources/image.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .navbar{

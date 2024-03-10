@@ -1,0 +1,253 @@
+/*-------------------LOGIN--------------------*/
+ 
+  #login
+ 
+  {
+  display: grid;
+  background-color: #fff;
+  text-align-last: justify;
+  height: 50%;
+  width: 100%;
+  border-radius: 1%;
+  box-shadow:
+ 
+        0 0 2px rgba(0, 0, 0, 0.2),  
+ 
+        0 1px 1px rgba(0, 0, 0, .2),
+ 
+        0 3px 0 #fff,
+ 
+        0 4px 0 rgba(0, 0, 0, .2),
+ 
+        0 6px 0 #fff,  
+ 
+        0 7px 0 rgba(0, 0, 0, .2);
+ 
+  }
+ 
+  #login:before
+ 
+  {
+  content: '';
+  right: 5px;
+  box-shadow: 0 0 0 1px #fff;
+  }
+ 
+  fieldset
+ 
+  {
+  border: 0;
+  padding: 0;
+  margin: 1%;
+  height: 50%;
+
+  }
+ 
+  #inputs input
+ 
+  {
+  background: #f9f9f9 url(../images/login-sprite.png) no-repeat;
+  padding: 15px 15px 15px 30px;
+  margin: 0 0 10px 0;
+  width: 353px; /* 353 + 2 + 45 = 400 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+  }
+ 
+  #username{  background-position: 5px -2px !important;}
+ 
+  #password{  background-position: 5px -52px !important;}
+ 
+  #inputs input:focus
+ 
+  {
+  background-color: #fff;
+  border-color: #e8c291;
+  outline: none;
+  }
+ 
+  #actions{
+    height: 50%;
+  }
+ 
+  #submit
+ 
+  {       
+ 
+  background-color: #ffb94b;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d69e31 #e3a037 #d5982d #e3a037;
+  height: 35px;
+  padding: 0;
+  width: 120px;
+  cursor: pointer;
+  font: bold 15px Arial, Helvetica;
+  color: #8f5a0a;
+  }
+ 
+  #submit:hover,#submit:focus
+ 
+  {       
+ 
+  background-color: #fddb6f;
+ 
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
+ 
+  background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
+ 
+  background-image: -moz-linear-gradient(top, #ffb94b, #fddb6f);
+ 
+  background-image: -ms-linear-gradient(top, #ffb94b, #fddb6f);
+ 
+  background-image: -o-linear-gradient(top, #ffb94b, #fddb6f);
+ 
+  background-image: linear-gradient(top, #ffb94b, #fddb6f);
+ 
+  }   
+ 
+  #submit:active
+ 
+  {       
+ 
+  outline: none;
+ 
+   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+ 
+   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+ 
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;        
+ 
+  }
+ 
+  #submit::-moz-focus-inner
+ 
+  {
+ 
+border: none;
+ 
+  }
+ 
+  #actions a
+ 
+  {
+ 
+  color: #3151A2;    
+ 
+  float: right;
+ 
+  line-height: 35px;
+ 
+  margin-left: 10px;
+ 
+  }
+  /*mine*/
+body{
+  margin:0;
+  min-height: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.content{
+  display: flex;
+  height: 100%;
+  margin: 0% 10% 0% 0%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  justify-content: center;
+  background-color: rgb(250 46 102);
+  align-items: center;
+  grid-column: 3 / span 2;
+  grid-row: 2 / span 3;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.image{
+  height: 100%;
+  margin: 0% 0% 0% 10%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-image: url("../resources/abstract.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 3;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.icon{
+  width: 25%;
+  height: 25%;
+  background-image: url("../resources/icon1jpg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10%}
+
+img{
+  max-width: 100%;
+}
+
+p{
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+}
+
+.wrapper{
+  height: 100vh;
+  background-color: #410069;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 25% 20% 27.5% 27.5%;
+  grid-template-rows: 10% auto auto auto;
+}
+
+.navbar{
+  width: 100%;
+  height: auto;
+  align-self: start;
+  flex-direction: column;
+  display: flex;
+  background-color: aliceblue;
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 4;
+
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}

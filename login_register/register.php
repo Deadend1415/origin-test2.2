@@ -78,7 +78,7 @@ body{
 
 ?>
 <br><br>
-<center><a href="../../../../../../Program%20Files%20(x86)/EasyPHP-12.1/www/my%20portable%20files/index.html">Ritorna al sito</a></center>
+<center><a href= "">Ritorna al sito</a></center>
 </div></div>
 </body>
 </html>

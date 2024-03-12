@@ -1,84 +1,51 @@
-
-<html
-<head>
-
-<title>ordina pizza</title>
-<style>
-body{
-  font-size: 2em;
-}
-.container {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 10%;
-  left:30%;
-  background-color: rgba(255, 255, 255,0.9); /* Adjust the opacity as needed */
-  z-index: 1;
-  border-radius: 30px;
-}
-
-.card {
-  transform-style: preserve-3d;
-  min-height: 80vh;
-  width: 100%;
-  border-radius: 30px;
-  padding: 0rem 5rem;
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
-}
-
-</style>
-</head>
-
-<body bgcolor="#4e64fa">
-<div class="container">
-<div class="card">
 <?php
-  if (isset ($_POST['utente']))   {$utente=$_POST['utente'];}     else {$utente='';}
-  if (isset ($_POST['password']))   {$password=sha1($_POST['password']);}     else {$password='';}
-
-  $host = "localhost";
-  $db_user = "root";
-  $db_psw = "";
-  $db_name = "pizzeria";
-
-  $conn = mysqli_connect($host,$db_user,$db_psw,$db_name);
-  if (!$conn)
-    {
-    die('Attenzione non connesso: ' . mysqli_error());
-  }else {
-    $qu= ("insert into tbl_accessi
-           values (null,'$utente','$password')");
-
-  $risultato = mysqli_query($conn,$qu);
-  }
-
-  if(!$risultato)
-  {
-   echo("Errore: " . mysqli_error($conn));
-  }
-  else
-  { /*echo '<center><img src="icon2.png" alt="failed"></center>';
-    echo "<center><div>
-    <br>
-    <p>******************************</p>
-    <br>
-    <b>Inserimento Effettuato Con Successo</b>
-    <br>
-    <p>******************************</p>
-    </div></center>";*/
-  }
+	$db_host = 'localhost';
+	$db_username = 'root';
+	$db_password = '';
+  $db_name = "test";
 
 
+	// MySQLi connection
+	$conn = mysqli_connect($db_host,$db_username,$db_password,$db_name);
 
-  mysqli_close($conn);
+	// MySQLi error
+	if (mysqli_connect_errno()){
+		exit('Impossibile connettersi al database'. mysqli_connect_error());
+	}
+
+	// Check params presence
+	if (!isset($_POST['username'], $_POST['password'])){
+		exit('Riempire tutti i campi.');
+	}
+	if (empty($_POST['username']) || empty($_POST['password'])) {
+		alert('Riempire tutti i campi.');
+	}
 
 
-?>
-<br><br>
-<center><a href= "">Ritorna al sito</a></center>
-</div></div>
-</body>
-</html>
+	if ($stmt = $conn->prepare('select id_utente, password from tbl_test where username = ?')){
+		// Bind parameters (s = string, i = int, etc)
+		$stmt->bind_param('s', $_POST['username']);
+		$stmt->execute();
+		$stmt->store_result();
+
+		if ($stmt->num_rows > 0) {
+			// Username already exists
+			echo 'Username exists, please choose another!';
+		}
+		else {
+			if ($stmt = $conn->prepare('insert into tbl(username, password) values(?, ?)')){
+				echo "<script>alert('You are now successfully registered! You will be redirected to the login page in 5 seconds.')</script>";
+				header('location: ../index/index.html');
+			}
+			else {
+				// Insert error
+				echo 'Could not prepare insert query.'. mysqli_error($conn);
+			}
+		}
+		$stmt->close();
+	}
+	else {
+		// Select error
+		echo 'Could not prepare select query.'. mysqli_error($conn);
+	}
+	$conn->close();

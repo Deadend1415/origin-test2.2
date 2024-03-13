@@ -17,15 +17,14 @@
   $risultato = mysqli_query($conn,$qu);
   }
 
-  if(!$risultato)
+
+if(!$risultato)
   {
-   echo("Errore: " . mysqli_error($conn));
+    header("Location: checkconn.php?message=$risultato");
   }
   else
-  { echo "<script>alert('You are now successfully registered! You will be redirected to the login page in 5 seconds.')</script>";
-    header('location: register.html');
-  }
-
+  {
+    header("Location: checkconn.php?status=success");  }
 
 
   mysqli_close($conn);

@@ -37,5 +37,15 @@
     </div>
 </div>
 
+<?php
+if (isset($_GET['status'])) {
+    if ($_GET['status'] === 'success') {
+        echo "alert('Data inserted successfully!');";
+    } elseif ($_GET['status'] === 'error') {
+        echo "alert('Failed to insert data!');";
+    }
+}
+?>
+
 </body>
 </html>

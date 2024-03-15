@@ -15,8 +15,8 @@
         <ul>
             <li><a href="../index/index.html">Home</a></li>
             <li><a  href="#main">Main</a></li>
-            <li><a class="active" href="#login">Login</a></li>
-            <li><a class="active" href="#register">Regiser</a></li>
+            <li><a  href="login.html">Login</a></li>
+            <li><a class="active">Regiser</a></li>
         </ul>
     </div>
 <!--    image -->

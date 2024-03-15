@@ -1,7 +1,7 @@
 <html>
 <head>
 
-    <title>register page</title>
+    <title>login page</title>
 
     <!-- Pannello di gestione accesso-->
     <link href="admin.css" rel="stylesheet" type="text/css" />
@@ -24,13 +24,13 @@
     <!-- content conatiner -->
     <div class="content">
         <div class="icon"></div><br>
-        <form id="login" action= "register_2.php" method="post">
+        <form id="login" action= "login.php" method="post">
             <fieldset id="inputs">
-                <input id="username" name="username" type="text"  placeholder="Username" autofocus required>
+                <input id="utente" name="utente" type="text"  placeholder="Username" autofocus required>
                 <input id="password" name="password" type="password"  placeholder="Password" required>
             </fieldset>
             <fieldset id="actions">
-                <input type="submit" id="submit" value="Register">
+                <input type="submit" id="submit" value="Login">
                 <a href="../index/index.html" id="back">Ritorna al sito</a>
             </fieldset>
         </form>

@@ -41,7 +41,7 @@ body{
 $host = "localhost";
 $db_user = "root";
 $db_psw = "";
-$db_name = "pizzeria";
+$db_name = "test";
 
   $connessione = mysqli_connect($host,$db_user,$db_psw,$db_name);
 
@@ -54,7 +54,7 @@ $db_name = "pizzeria";
   $password= sha1 (mysql_real_escape_string($_POST['password']));
 
   $query = "SELECT utente
-            FROM tbl_accessi
+            FROM tbl_test
 			WHERE utente = '$utente' AND password = '$password' ";
 
   $ris = mysqli_query($connessione, $query) or die (mysqli_error());
@@ -64,10 +64,10 @@ $db_name = "pizzeria";
 
   if($numerorighe>0)
 	   {
-	  echo '<script   language=javascript>document.location.href="main.html"</script>';
+	  echo '<script   language=javascript>document.location.href="../main/main.html"</script>';
        }
  else  {
-   echo '<center><img src="icon.jpeg" alt="failed"></center>';
+   echo '<center><img src="" alt="failed"></center>';
    echo "<center><div>
    <br>
    <p>******************************</p>
@@ -77,7 +77,7 @@ $db_name = "pizzeria";
    <p>******************************</p>
    </div></center>";
 	echo '<br>';
-  echo '<center><a href="index.html" id="back">Ritorna al sito</a></center>';
+  echo '<center><a href="../index/index.html" id="back">Ritorna al sito</a></center>';
 	    }
 
    mysqli_close($connessione);

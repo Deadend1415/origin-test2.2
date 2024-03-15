@@ -17,15 +17,15 @@
   $risultato = mysqli_query($conn,$qu);
   }
 
-
 if(!$risultato)
   {
-    header("Location: checkconn.php?message=$risultato");
+    $variable=$risultato;
+    header('Location: register_html.php?variable=' . $variable);
   }
-  else
-  {
-    header("Location: checkconn.php?status=success");  }
-
+  else {
+    $variable = "sucess";
+    header('Location: register_html.php?variable=' . $variable);
+}
 
   mysqli_close($conn);
 

@@ -64,7 +64,7 @@ $db_name = "test";
 
   if($numerorighe>0)
 	   {
-	  echo '<script   language=javascript>document.location.href="../main/main.html"</script>';
+	  echo '<script   language=javascript>document.location.href="../main/main.php"</script>';
        }
  else  {
    echo '<center><img src="" alt="failed"></center>';

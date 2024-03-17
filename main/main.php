@@ -26,11 +26,10 @@ $_SESSION["game1"] = 0;
         <div class="grid-container">
             <div class="row">
                 <p>🅵🅸🅶🅷🅸🅽🅶 🅶🅰🅼🅴🆂</p>
-                <a href="https://www.snk-corp.co.jp/us/games/kof-portal/" target="_blank"
+                <a href="https://www.snk-corp.co.jp/us/games/kof-portal/" target="_blank">
                     <img src="../resources/kof1.jpg" alt="Snow"
                          onmouseover="this.src='../resources/kof2.gif';"
                          onmouseout="this.src='../resources/kof1.jpg';">
-                    </a>
 
                 <a href="https://www.guiltygear.com/ggst/en/" onclick="func1()" target="_blank">
                 <img src="../resources/gg1.jpeg" alt="Snow"

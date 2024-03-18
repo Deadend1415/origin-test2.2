@@ -39,7 +39,12 @@
 
 <?php
 $variable = $_GET['variable'];
-echo "<script type='text/javascript'>alert('{$variable}');</script>"
+if($variable =='sucess')
+echo "<script type='text/javascript'>alert('{$variable}');</script>";
+else{
+    echo "<script type='text/javascript'>alert('{$variable}');</script>";
+
+}
 ?>
 
 </body>

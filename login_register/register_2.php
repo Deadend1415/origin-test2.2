@@ -12,18 +12,19 @@
     {
     die('Attenzione non connesso: ' . mysqli_error());
   }else {
-    $qu= ("insert into tbl_test values (null,'$username','$password','admin')");
+    $qu= ("insert into tbl_test values (null,'$username','$password',0)");
 
   $risultato = mysqli_query($conn,$qu);
   }
 
 if(!$risultato)
   {
-    $variable=$risultato;
+  $variable=$risultato;
     header('Location: register_html.php?variable=' . $variable);
   }
   else {
-    $variable = "sucess";
+    
+    $variable = "sucess"; 
     header('Location: register_html.php?variable=' . $variable);
 }
 

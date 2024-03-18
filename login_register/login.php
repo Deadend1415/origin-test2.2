@@ -11,10 +11,11 @@ $db_name = "test";
 
   if (isset ($_POST['utente']))   {$utente=mysql_real_escape_string($_POST['utente']);}     else {$utente='';}
   if (isset ($_POST['password']))   {$password=mysql_real_escape_string($_POST['password']);}     else {$utente='';}
+
   /*sha1 o md5 cifra la password anche qui in questo modo corrisponde con quella inserita cifrata del db*/
 
-  $query = "SELECT utente,password,user_type
-            FROM tbl_test";
+  $query = "select username,password,user_type
+  from tbl_test;";
 
   $output=mysqli_query($connessione,$query);
 

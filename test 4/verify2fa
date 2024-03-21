@@ -1,0 +1,13 @@
+<?php
+$idutente = $_POST['idutente'];
+$2fa = md5($_POST['2fa']);
+
+$query = "SELECT * FROM UTENTI WHERE ID_UTENTE = $idutente 2FA = $2fa AND 2FA_EXPIRE > CURRENT_TIMESTAMP";
+$login_results = execute_query($query); //metodo da implementare
+if (count($login_results) === 0) {
+	//TODO: Inserire gestione di login fallito
+} else {
+	//TODO: Inserire gestione di login eseguito correttamente
+}
+
+?>

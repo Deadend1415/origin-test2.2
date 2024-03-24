@@ -17,9 +17,10 @@ $output = mysqli_query($connessione,$query);
 if (count($output) === 0) {
     //TODO: Inserire gestione di login fallito
     exit("fallito");
+    echo "<a href='../index/index.html'>Ritorna al sito<a/>";
 } else {
     //TODO: Inserire gestione di login eseguito correttamente
-    exit("successo");
+    header('Location:../main/main.php');
 }
 
 ?>

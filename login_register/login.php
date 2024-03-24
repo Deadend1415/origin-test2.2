@@ -1,4 +1,34 @@
- <?php
+ <html>
+   <head>
+       <style>
+           body{
+               background: #f9f9f9 url(../resources/abstract.jpg) no-repeat;
+                display: flex;
+               justify-content: center;
+               align-items: center;
+               font-size: xx-large;
+           }
+           div{
+               background-color: rgba(255, 255, 255, 0.75);
+               height: 50%;
+               width: 50%;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+               border-radius: 5%;
+           }
+           p{color: red;}
+           @media only screen and (min-width: 918px) {
+               div {
+                   width: 30%;
+               }
+           }
+       </style>
+   </head>
+   <body>
+   <div>
+     <?php
 
 /*connessione DB*/
 
@@ -26,7 +56,6 @@ $db_name = "test";
   if($o[1] == $username and $o[2] == $password) {
 
     $fa = strval(mt_rand(100000000, 999999999));
-    echo "fa: ". $fa . "<br>";
 
     $id_utente = $o[0];
     $emailto = $o[3];
@@ -51,12 +80,14 @@ $db_name = "test";
       // Check if it's the last row
       if ($o[1]!=$username and $o[2]!=$password and $currentRow >= $totalRows)
   {
-      echo " error";
-      echo "<br>"."<a href='../index/index.html'>Ritorna al sito<a/>";
+      echo "<p>ERROR</p>";
+      echo "<a href='../index/index.html'>Ritorna al sito<a/>";
   }
   }
 
    mysqli_close($connessione);
 
 ?>
-
+   </div>
+   </body>
+ </html>

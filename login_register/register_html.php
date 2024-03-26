@@ -13,7 +13,7 @@
     <!-- Top navigation bar -->
     <div class="navbar">
         <ul>
-            <li><a href="../index/index.html">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a  href="#main">Main</a></li>
             <li><a  href="login.html">Login</a></li>
             <li><a class="active">Regiser</a></li>

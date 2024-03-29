@@ -17,7 +17,7 @@ $_SESSION["game1"] = 0;
 <!-- Top navigation bar -->
         <div class="navbar">
             <ul>
-            <li><a href="../index/index.html">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a class="active" href="#main">Main</a></li>
             <li><a href="../login_register/login.html">Login</a>
             <li><a href="../login_register/register_html.php">Regiser</a>

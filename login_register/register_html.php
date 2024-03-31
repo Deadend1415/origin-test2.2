@@ -1,3 +1,7 @@
+<?php
+session_start();
+ob_start();
+?>
 <html>
 <head>
 
@@ -24,10 +28,11 @@
     <!-- content conatiner -->
     <div class="content">
         <div class="icon"></div><br>
-        <form id="login" action= "register_2.php" method="post">
+        <form id="login" action= "register.php" method="post">
         <fieldset id="inputs">
             <input id="username" name="username" type="text"  placeholder="Username" autofocus required>
             <input id="password" name="password" type="password"  placeholder="Password" required>
+            <input id="email" name="email" type="text"  placeholder="Email" required>
         </fieldset>
         <fieldset id="actions">
             <input type="submit" id="submit" value="Register">
@@ -38,10 +43,17 @@
 </div>
 
 <?php
-$variable = $_GET['variable'];
-if (isset($variable)){
-        echo "<script type='text/javascript'>alert('{$variable}');</script>";
-}
+    if (isset($_SESSION["register"])){
+        //is registration successfull
+        if ($_SESSION["register"]=="success"){
+            echo "<script type='text/javascript'>alert('Account successfully registered');</script>";
+        }else{
+            echo "<script type='text/javascript'>alert('Failed to register account');</script>";
+        }
+
+    }
+session_unset(); //reset
+ob_end_flush();
 ?>
 
 </body>

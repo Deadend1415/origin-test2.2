@@ -1,4 +1,6 @@
 <?php
+require_once 'config.php';
+//Create session
 session_start();
 ?>
 <html>
@@ -31,15 +33,14 @@ session_start();
 </head>
 <body><div>
 <?php
-  $host = "ftp.deadend1415.altervista.org";
-  $db_user = "deadend1415";
-  $db_psw = "Brolinto0.";
-  $db_name = "my_deadend1415";
+//error reporting
+mysqli_report(MYSQLI_REPORT_ERROR);
 
-$conn = mysqli_connect($host,$db_user,$db_psw,$db_name);
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    if (!isset($fa)){$fa = $_POST["fa"];}
+//Connessione al database
+$conn = getConn();
 
+//setting variables
+if (!isset($fa)){$fa = $_POST["fa"];}
 $id=$_SESSION["id"];
 
 if ($stmt = $conn->prepare('SELECT 2FA FROM tbl_test WHERE id = ?')) {
@@ -50,10 +51,15 @@ if ($stmt = $conn->prepare('SELECT 2FA FROM tbl_test WHERE id = ?')) {
         if ($stmt->num_rows > 0){
 		$stmt->bind_result($otp);
 			$stmt->fetch();
-          echo "fa:".$fa." otp:".$otp;
+//update otp
+$query = "UPDATE tbl_test SET 2FA = NULL, 2FA_EXPIRE = NULL
+    WHERE id  = $id;";
+mysqli_query($conn,$query);
+            //check if otp matches
             if($fa==$otp){
               echo "<script>alert('Successfully logged in'); location.href = '../main/main.php';</script>";}
-              else{echo "<script>alert('Incorrect OTP!'); location.href = '../index.html';</script>";}
+              else{
+                  echo "<script>alert('Incorrect OTP!'); location.href = '../index.html';</script>";}
 }else{
         echo "<p>ERROR</p>";
         echo "<a href='../index.html'>Ritorna al sito<a/>";

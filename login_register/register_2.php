@@ -2,10 +2,10 @@
   if (isset ($_POST['username']))   {$username=$_POST['username'];}     else {$username='';}
   if (isset ($_POST['password']))   {$password=$_POST['password'];}     else {$password='';}
   $admin=0;
-  $host = "localhost";
-  $db_user = "root";
-  $db_psw = "";
-  $db_name = "test";
+  $host = "ftp.deadend1415.altervista.org";
+  $db_user = "deadend1415";
+  $db_psw = "Brolinto0.";
+  $db_name = "my_deadend1415";
 
   $conn = mysqli_connect($host,$db_user,$db_psw,$db_name);
   if (!$conn)
@@ -17,16 +17,11 @@
   $risultato = mysqli_query($conn,$qu);
   }
 
-if(!$risultato)
-  {
-  $variable= "error";
-     header('Location: register_html.php?variable=' . $variable);
-  }
-  else {
+
     
     $variable = "sucess"; 
     header('Location: register_html.php?variable=' . $variable);
-}
+
 
   mysqli_close($conn);
 

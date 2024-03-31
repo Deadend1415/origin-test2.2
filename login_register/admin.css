@@ -210,7 +210,7 @@ p{
   justify-content: center;
   grid-template-columns: 25% 20% 27.5% 27.5%;
   grid-template-rows: 10% auto auto auto;
-  background-image: url("../resources/image.gif");
+  background-image: url("../resources/background.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

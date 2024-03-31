@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
     <style>
@@ -28,31 +31,35 @@
 </head>
 <body><div>
 <?php
-$host = "localhost";
-$db_user = "root";
-$db_psw = "";
-$db_name = "test";
+  $host = "ftp.deadend1415.altervista.org";
+  $db_user = "deadend1415";
+  $db_psw = "Brolinto0.";
+  $db_name = "my_deadend1415";
 
-$connessione = mysqli_connect($host,$db_user,$db_psw,$db_name);
-
-
-    //if (!isset($id_utente)){$id_utente = $_POST["id_utente"];}
+$conn = mysqli_connect($host,$db_user,$db_psw,$db_name);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     if (!isset($fa)){$fa = $_POST["fa"];}
 
-$query = "select * from tbl_test where 2FA and 2FA_EXPIRE > CURRENT_TIMESTAMP";
+$id=$_SESSION["id"];
 
-$output = mysqli_query($connessione,$query);
-
-while($o=mysqli_fetch_array($output)){
-    if (count($output) == 0) {
-        //TODO: Inserire gestione di login fallito
+if ($stmt = $conn->prepare('SELECT 2FA FROM tbl_test WHERE id = ?')) {
+		$stmt->bind_param("i", $id);
+        $stmt->execute();
+		$stmt->store_result();
+        
+        if ($stmt->num_rows > 0){
+		$stmt->bind_result($otp);
+			$stmt->fetch();
+          echo "fa:".$fa." otp:".$otp;
+            if($fa==$otp){
+              echo "<script>alert('Successfully logged in'); location.href = '../main/main.php';</script>";}
+              else{echo "<script>alert('Incorrect OTP!'); location.href = '../index.html';</script>";}
+}else{
         echo "<p>ERROR</p>";
-        echo "<a href='../index/index.html'>Ritorna al sito<a/>";
-    } else {
-        //TODO: Inserire gestione di login eseguito correttamente
-        header('Location:../main/main.php');
-    }
-}
+        echo "<a href='../index.html'>Ritorna al sito<a/>";
+        }
+     }else{printf("Error: %s.\n", $stmt->error);}
+
 ?></div>
 </body>
 </html>

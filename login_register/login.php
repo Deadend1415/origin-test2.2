@@ -1,4 +1,8 @@
- <html>
+<?php
+// Start the session
+session_start();
+?>
+<html>
    <head>
        <style>
            body{
@@ -32,10 +36,10 @@
 
 /*connessione DB*/
 
-$host = "localhost";
-$db_user = "root";
-$db_psw = "";
-$db_name = "test";
+  $host = "ftp.deadend1415.altervista.org";
+  $db_user = "deadend1415";
+  $db_psw = "Brolinto0.";
+  $db_name = "my_deadend1415";
 
   $connessione = mysqli_connect($host,$db_user,$db_psw,$db_name);
 
@@ -56,12 +60,14 @@ $db_name = "test";
   if($o[1] == $username and $o[2] == $password) {
 
     $fa = strval(mt_rand(100000000, 999999999));
+    echo $fa;
 
-    $id_utente = $o[0];
+    $id = $o[0];
+    $_SESSION["id"] = $id;
     $emailto = $o[3];
 
       $query2 = "UPDATE tbl_test SET 2FA = $fa, 2FA_EXPIRE = ADDTIME(CURRENT_TIMESTAMP,900) 
-                WHERE id  = $id_utente;";
+                WHERE id  = $id;";
       mysqli_query($connessione,$query2);
 
       //mail($emailto, "2FA Login", $fa, 'From: webmaster@example.com');
@@ -71,7 +77,6 @@ $db_name = "test";
         <input type="text" placeholder="Auth" name="fa">
 		<button type="submit" name="login">Conferma</button>
         </form>';
-
   }
 
       // Increment current row counter
@@ -81,7 +86,7 @@ $db_name = "test";
       if ($o[1]!=$username and $o[2]!=$password and $currentRow >= $totalRows)
   {
       echo "<p>ERROR</p>";
-      echo "<a href='../index/index.html'>Ritorna al sito<a/>";
+      echo "<a href='../index.html'>Ritorna al sito<a/>";
   }
   }
 

@@ -31,7 +31,7 @@
         </fieldset>
         <fieldset id="actions">
             <input type="submit" id="submit" value="Register">
-            <a href="../index/index.html" id="back">Ritorna al sito</a>
+            <a href="../index.html" id="back">Ritorna al sito</a>
         </fieldset>
     </form>
     </div>
